@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/edit/<%= items.id %>" method="post" >
+        <div>
+            <label for="name">Name</label>
+        </div>
+        <div>
+            <input name="name" type="text" value="<%= items.name %>">
+        </div>
+        <div>
+            <label for="address">Address</label>
+        </div>
+        <div>
+            <input name="address" type="text" value="<%= items.address %>">
+        </div>
+        <div>
+            <label for="category">Category</label>
+        </div>
+        <div>
+            <input name="category" type="text" value="<%= items.category %>">
+        </div>
+        <div>
+            <button type="submit">ADD</button>
+        </div>
+    </form>
+</body>
+</html>

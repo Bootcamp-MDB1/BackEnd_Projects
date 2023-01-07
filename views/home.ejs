@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/style.css" type="text/css">
+</head>
+<body>
+    <a class="add-btn" href="/add">Add New Restaurant</a>
+    <div class="parent">
+        <% for(let i = 0; i < items.length; i++) { %>
+        <div>
+            <div> 
+                <h2><%= items[i].name %></h2>
+                <h2><%= items[i].category %></h2>
+            </div>
+        <!-- <a href="<%= items[i].id %>">Detail</a> -->
+        <button onclick="onViewResto(<%= items[i].id %>)">View</button>
+            <button onclick="onEditResto(<%= items[i].id %>)">Edit</button>
+            <form action="/<%= items[i].id %>" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        <!-- </a> -->
+        </div>
+        <%}%>
+    </div>
+    <div>
+        <form action="/" method="get">
+            <input type="submit" name="page" value="1">
+            <input type="submit" name="page" value="2">
+        </form>
+    </div>
+</body>
+<script>
+        function onViewResto(id){
+            window.location.href = `/${id}`;
+        }
+        
+    function onEditResto(id){
+        window.location.href = `/edit/${id}`;
+    }
+    </script>
+</html>

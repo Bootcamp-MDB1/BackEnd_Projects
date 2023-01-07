@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+    .add-btn {
+        background-color: burlywood;
+        text-decoration: none;
+        color: black;
+        border: 1px solid black;
+        padding: 10px 20px;
+        margin: 20px auto;
+    }
+
+    .parent {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        background-color: rgb(192, 218, 218);
+        width: 80vw;
+        height: 80vh;
+        margin: auto;
+        padding: 20px;
+        row-gap: 20px;
+        column-gap: 20px;
+        box-sizing: border-box;
+        
+    }
+
+    .parent > div {
+        text-align: center;
+        border: 1px solid black;
+        padding: 10px;
+        text-decoration: none;
+    }
+
+    .detail {
+        background-color: lightgrey;
+        border: 1px solid black;
+        width : 25%;
+        font-size: 20px ;
+    }

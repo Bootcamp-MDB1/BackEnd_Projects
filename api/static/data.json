@@ -1,0 +1,48 @@
+{
+    "restaurants" :
+    [
+        {
+            "id": 1,
+            "name": "Cafe 1",
+            "address" : "Jakarta",
+            "category": "Fried rice",
+            "isActive" : true
+        },
+        {
+            "id": 2,
+            "name": "Cafe 2",
+            "address" : "Bogor",
+            "category": "Seafood",
+            "isActive" : true
+        },
+        {
+            "id": 3,
+            "name": "Cafe 3",
+            "address" : "Depok",
+            "category": "Hot bread",
+            "isActive" : true
+          
+        },
+        {
+            "id": 4,
+            "name": "Cafe 4",
+            "address" : "Tangerang",
+            "category": "Noodles",
+            "isActive" : true
+        },
+        {
+            "id": 5,
+            "name": "Cafe 5",
+            "address" : "Bekasi",
+            "category": "Snack",
+            "isActive" : true
+        },
+        {
+            "id": 6,
+            "name": "Cafe 6",
+            "address" : "Bandung",
+            "category": "Fresh Drink",
+            "isActive" : true
+        }
+    ]
+}
