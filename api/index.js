@@ -56,6 +56,7 @@ routes.put("/data/:id", (req, res) => {
     });
 });
 
+//soft delete
 routes.delete("/data/:id", (req, res) => {
     const { id } = req.params;
     db.restaurants = db.restaurants.map((d) => {
