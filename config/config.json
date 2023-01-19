@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "postgres",
-    "password": "55555",
-    "database": "restaurants",
+    "password": "passwordkamu",
+    "database": "restoran_db",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

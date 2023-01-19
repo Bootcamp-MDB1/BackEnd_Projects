@@ -24,7 +24,7 @@
         <div>
             <input id="password" type="password">
         </div>
-            <button type="submit" onclick="pass()">Login</button><br>
+            <button type="submit">Login</button><br>
             <p>Not yet Registered ?
             <a href="/register"> Click here to Sign-up </a>
             </p>
@@ -32,31 +32,4 @@
     </form>
 </div>
 </body>
-
-<script> 
-    function pass() { 
-      let user = document.getElementById("username").value;
-      let pass =  document.getElementById("password").value;
-              if (user === "") {
-                  alert( "Enter your username")
-                //   window.open("/login"); 
-              }
-              else if (pass === "") {
-                  alert("Enter Your Password")
-                //   window.open("/login"); 
-              }
-              else  if (user !== "admin") {
-                  alert("Login Failed ! or maybe You're not yet Registered")
-                  window.open("/"); 
-              }
-              else if (pass !== "admin") {
-                  alert("Check Your Password")
-              }
-              else  { 
-              alert(`Login Success, Welcome ${user}`); 
-                  window.open("/dashboard"); 
-              }
-    }
-  </script> 
-
 </html>

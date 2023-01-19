@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasOne(models.resto_product, {foreignKey: "id"});
+      this.hasOne(models.resto_product, {foreignKey:"id"})
     }
   }
   resto_profile.init({

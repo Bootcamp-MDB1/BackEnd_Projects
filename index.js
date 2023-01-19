@@ -1,54 +1,4 @@
-// import  express  from "express";
-// import api from './api/index.js';
-// import views from './views/index.js'
-
-// const express = require("express")
-// const app = express();
-// const port = 3000
-// const api = require("./api/index.js")
-// const views = require("./views/index.js")
-// app.set("view engine", "ejs");
-
-// app.use("/", views);
-// app.use("/api/v1", api);
-
-// app.listen(port, () => {
-//     console.log(`Server running on ${port}`);
-// });
-
-
-// app.post("/add", (req, res) => {
-//   const {
-//     username,
-//     password,
-//     first_name,
-//     last_name,
-//     birthplace
-//   } = req.body;
-//   user_game
-//     .create({
-//       username,
-//       password,
-//       isSuperAdmin: false,
-//     })
-//     .then((user_game) => {
-//       user_game_biodata
-//         .create({
-//           id_user: user_game.id,
-//           first_name,
-//           last_name,
-//           birthplace,
-//         })
-//         .then((response) => {
-//           res.redirect("/dashboard");
-//         });
-//     });
-// });
-
-
-
 const express = require("express");
-const router = express.Router();
 const {
   param,
   default: req
@@ -59,10 +9,8 @@ const {
   send,
   status,
 } = require("express/lib/response");
-// const ejsLint = require("ejs-lint");
 const app = express();
 const port = 3000;
-// const data = require("./static/data-post.json");
 const bodyParser = require("body-parser");
 const {
   resto_profile
@@ -70,7 +18,6 @@ const {
 const {
   resto_product
 } = require("./models");
-
 
 app.set("view engine", "ejs");
 app.use(
@@ -81,16 +28,10 @@ app.use(
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.static(__dirname));
-// app.use(express.static("website"));
-// app.use("/images", express.static(__dirname + "/images"));
 
 app.get("/", (req, res) => {
   res.render("home.ejs");
 });
-
-// app.get("/dashboard", (req, res) => {
-//     res.render("dashboard.ejs");
-//   });
 
 app.get("/about", (req, res) => {
   res.render("about.ejs");
@@ -116,45 +57,6 @@ app.get("/detail/:id", (req, res) => {
       });
     });
   });
-
-
-// app.post("/resto/:id/edit", (req, res) => {
-//     const {
-//     id
-//     } = req.params;
-//     const {
-//         name_resto,
-//         address,
-//         products,
-//         price,
-//         category
-//     } = req.body;
-//     resto_profile
-//       .update({
-//         name_resto,
-//         address,
-//         membership: true,
-//       }, {
-//         where: {
-//           id,
-//         },
-//       })
-//       .then((response) => {
-//         resto_product
-//           .update({
-//             products,
-//             price,
-//             category
-//           }, {
-//             where: {
-//               id: id,
-//             },
-//           })
-//           .then((response) => {
-//             res.redirect("/detail");
-//           });
-//       });
-//   });
 
 app.get("/dashboard", (req, res) => {
   resto_profile
@@ -222,22 +124,12 @@ app.post("/edit/:id", (req, res) => {
     });
 });
 
-// app.get("/delete/:id", (req, res) => {
-//   const {id} = req.params;
-//   resto_profile.destroy({
-//     where: {id,},
-//     include: resto_product,
-//   });
-//   res.redirect("/dashboard");
-// });
-
 app.get("/delete/:id", (req, res) => {
   const {
     id
   } = req.params;
   resto_profile.destroy({
     where: {id},
-    // include: resto_product,
   }).then((response) => {
     resto_product.destroy({
         where: {id},
@@ -279,7 +171,6 @@ app.post("/add", (req, res) => {
         });
     });
 });
-
 
 app.post("/login", (req, res) => {
     const {
@@ -324,4 +215,3 @@ app.get("*", (req, res) => {
 app.listen(port, () => {
   console.log(`Example App listening on port ${port}`);
 });
-//

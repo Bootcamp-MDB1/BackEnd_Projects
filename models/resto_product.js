@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   resto_product.init({
-    // id: DataTypes.INTEGER,
     products: DataTypes.STRING,
     price: DataTypes.INTEGER,
     category: DataTypes.STRING
