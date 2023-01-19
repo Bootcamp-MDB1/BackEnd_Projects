@@ -1,36 +1,43 @@
 // import { Router, json } from "express";
 // import data from "./static/data.json"
 const express = require("express")
-const db = require("./static/data.json")
+const {resto_profile, resto_product} = require("../models/")
 const routes = express();
 
 routes.use(express.json());
 routes.use(express.urlencoded({ extended: false }));
 
 routes.get('/data', (req, res) => {
-    const result = db.restaurants.filter((d) => d.isActive);
-    return res.send(result)
+    const result = resto_profile.resto_profile.filter((d) => d.membership);
+    return res.send(resto_profile)
 })
 
-routes.post("/data", (req, res) => {
-    const { name, address, category } = req.body;
-    const items = db.restaurants;
+routes.get("/data", (req, res) => {
+    const { name_resto, address, products, price, category, } = req.body;
+    const items = resto_profile.restaurants;
     const id = items[items.length - 1].id + 1;
-    db.restaurants.push({
-        id: id,
-        name: name,
+    resto_profile.create({
+        name_resto: name_resto,
         address: address,
-        category: category,
-        isActive: true
-    });
-    return res.status(200).json({
+        membership: true,
+    }).then(resto_profile => {
+        resto_product
+          .create({
+            id:resto_profile.id,
+            products: products,
+            price: price,
+            category: category,
+        })
+    }).then(response => {
+        res.status(200).json({
         message: "success"
-    });
+        });
+    }); 
 });
 
 routes.get('/data/:id', (req, res) => {
     const { id } = req.params;
-    const resto = db.restaurants.find((d) => d.id === +id);
+    const resto = resto_profile.restaurants.find((d) => d.id === +id);
     return res.status(200).json({
         result : resto
     });  
@@ -38,15 +45,17 @@ routes.get('/data/:id', (req, res) => {
 
 routes.put("/data/:id", (req, res) => {
     const { id } = req.params;
-    const { name, address, category } = req.body;
-    db.restaurants = db.restaurants.map((d) => {
+    const { name_resto, address, products, price, category, } = req.body;
+    resto_profile.restaurants = resto_profile.restaurants.map((d) => {
         if (d.id === +id) {
             return {
-                id: d.id,
-                name: name,
+                id: id,
+                name_resto: name_resto,
                 address: address,
-                category: category,
-                isActive: true
+                membership: true,
+                products: products,
+                price: price,
+                category: category
             }
         }
         return d;
@@ -59,8 +68,7 @@ routes.put("/data/:id", (req, res) => {
 //soft delete
 routes.delete("/data/:id", (req, res) => {
     const { id } = req.params;
-    db.restaurants = db.restaurants.map((d) => {
-        console.log(d);
+    resto_profile.restaurants = resto_profile.restaurants.map((d) => {
         if (d.id === +id) {
             return {
                 ...d,

@@ -6,6 +6,17 @@ const { default: axios } = require("axios");
 routes.use('/assets', express.static("./views/assets"));
 routes.use(express.urlencoded({ extended: true }));
 
+routes.get("/dashboard", async (req, res) => {
+    const hasil = await axios({
+        url: "http://localhost:3000/api/v1/data",
+        method: "GET",
+    });
+    return res.render('dashboard', {
+        items : hasil.data
+    })
+})
+
+
 routes.get("/", async (req, res) => {
     const hasil = await axios({
         url: "http://localhost:3000/api/v1/data",
@@ -16,29 +27,63 @@ routes.get("/", async (req, res) => {
     })
 })
 
+
+routes.get("/login", async (req, res) => {
+    const hasil = await axios({
+        url: "http://localhost:3000/api/v1/data",
+        method: "GET",
+    });
+    return res.render('login', {
+        items : hasil.data
+    })
+})
+
+// routes.post("/login", async (req, res) => {
+//     const hasil = await axios({
+//         url: "http://localhost:3000/api/v1/data",
+//         method: "POST",
+//     });
+//     return res.render('login', {
+//         items : hasil.data
+//     })
+// })
+
+routes.get("/about", async (req, res) => {
+    const hasil = await axios({
+        url: "http://localhost:3000/api/v1/data",
+        method: "GET",
+    });
+    return res.render('about', {
+        items : hasil.data
+    })
+})
+
 routes.get("/add", async (req, res) => {
     return res.render("add", {
         onSubmit: () => {
-            console.log("here");
+            // console.log("here");
         },
     });
 });
 
 routes.post("/add", async (req, res) => {
-    const {name, address, category} = req.body;
+    const { name_resto, address, products, price, category, } = req.body;
         const resto = await axios({
             url: "http://localhost:3000/api/v1/data",
             method: "POST",
             data: {
-                name,
-                address,
-                category
+                name_resto: name_resto,
+                address: address,
+                membership: true,
+                products: products,
+                price: price,
+                category: category
             },
         });
-        return res.status(302).redirect('/')
+        return res.status(302).redirect('/dashboard')
     })
 
-routes.get("/:id", async (req, res) => {
+routes.get("/dashboard/:id", async (req, res) => {
     const {id} =req.params;
     const hasil = await axios({
         url: `http://localhost:3000/api/v1/data/${id}`,
@@ -62,17 +107,20 @@ routes.get("/edit/:id", async (req, res) => {
 
 routes.post("/edit/:id", async (req, res) => {
     const { id } = req.params;
-    const { name, address, category } = req.body;
+    const { name_resto, address, products, price, category, } = req.body;
     const hasil = await axios({
         url: `http://localhost:3000/api/v1/data/${id}`,
         method: "PUT",
         data: {
-            name: name,
+            name_resto: name_resto,
             address: address,
+            membership: true,
+            products: products,
+            price: price,
             category: category
         }
     });
-    return res.status(302).redirect("/");
+    return res.status(302).redirect("/dashboard");
 });
 
 routes.post("/:id", async (req, res) => {
@@ -81,7 +129,7 @@ routes.post("/:id", async (req, res) => {
         url: `http://localhost:3000/api/v1/data/${id}`,
         method: "DELETE",
     });
-    return res.status(302).redirect("/");
+    return res.status(302).redirect("/dashboard");
 });
 
 module.exports = routes

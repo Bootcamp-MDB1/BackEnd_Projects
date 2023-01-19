@@ -10,7 +10,8 @@
 <body>
     <%- include("partials/navbar") %>
     <div class="loginPage"> 
-    <h1  style="margin-top: 50px;">LOGIN DULU YA...</h1>
+    
+    <h1  style="margin-top: 50px;">REGISTER DULU YA...</h1>
     <form class="login" >
         <div>
             <label for="username">Username :</label>
@@ -19,14 +20,20 @@
             <input id="username" type="text">
         </div>
         <div>
+            <label for="email">Email :</label>
+        </div>
+        <div>
+            <input id="email" type="email">
+        </div>
+        <div>
             <label for="Password">Password :</label>
         </div>
         <div>
             <input id="password" type="password">
         </div>
-            <button type="submit" onclick="pass()">Login</button><br>
-            <p>Not yet Registered ?
-            <a href="/register"> Click here to Sign-up </a>
+            <button type="submit" >Register</button>
+            <p>Have Registered ?
+                <a href="/login"> Click here to Login </a>
             </p>
         </div>
     </form>

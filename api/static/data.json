@@ -6,6 +6,13 @@
             "name": "Cafe 1",
             "address" : "Jakarta",
             "category": "Fried rice",
+            "product" :
+                {
+                    "id": 1,
+                    "name": "Fried Chicken",
+                    "price": 50000
+                },
+            
             "isActive" : true
         },
         {
@@ -13,6 +20,13 @@
             "name": "Cafe 2",
             "address" : "Bogor",
             "category": "Seafood",
+            "product" :
+                {
+                    "id": 1,
+                    "name": "Tuna Fish",
+                    "price": 70000
+                },
+            
             "isActive" : true
         },
         {
@@ -20,6 +34,13 @@
             "name": "Cafe 3",
             "address" : "Depok",
             "category": "Hot bread",
+            "product" :
+                {
+                    "id": 1,
+                    "name": "Humburger",
+                    "price": 30000
+                },
+            
             "isActive" : true
           
         },
@@ -28,6 +49,13 @@
             "name": "Cafe 4",
             "address" : "Tangerang",
             "category": "Noodles",
+            "product" :
+                {
+                    "id": 1,
+                    "name": "Soto Kari Ayam",
+                    "price": 20000
+                },
+            
             "isActive" : true
         },
         {
@@ -35,6 +63,13 @@
             "name": "Cafe 5",
             "address" : "Bekasi",
             "category": "Snack",
+            "product" :
+                {
+                    "id": 1,
+                    "name": "Keripik Pisang",
+                    "price": 10000
+                },
+            
             "isActive" : true
         },
         {
@@ -42,6 +77,41 @@
             "name": "Cafe 6",
             "address" : "Bandung",
             "category": "Fresh Drink",
+            "product" :
+                {
+                    "id": 1,
+                    "name": "Chocholate Milk",
+                    "price": 5000
+                },
+            
+            "isActive" : true
+        },
+        {
+            "id": 7,
+            "name": "Cafe 7",
+            "address" : "Bandung",
+            "category": "Fresh Drink",
+            "product" :
+                {
+                    "id": 1,
+                    "name": "Orange Juice",
+                    "price": 15000
+                },
+            
+            "isActive" : true
+        },
+        {
+            "id": 8,
+            "name": "Cafe 8",
+            "address" : "Bandung",
+            "category": "Hot Drink",
+            "product" :
+                {
+                    "id": 1,
+                    "name": "Chappucino",
+                    "price": 4000
+                },
+            
             "isActive" : true
         }
     ]

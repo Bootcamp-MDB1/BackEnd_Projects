@@ -5,30 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/views/assets/style.css" type="text/css">
 </head>
 <body>
-    <form action="/edit/<%= items.id %>" method="post" >
+    <%- include("partials/navbar") %>
+    <h1 style="text-align: center;">Update the Restaurant : </h1>
+    <form class="edit" action="/edit/<%= resto.id %>" method="post" >
         <div>
-            <label for="name">Name</label>
+            <label for="name">Name :</label>
         </div>
         <div>
-            <input name="name" type="text" value="<%= items.name %>">
+            <input name="name" type="text" value="<%= resto.name %>">
         </div>
         <div>
-            <label for="address">Address</label>
+            <label for="address">Address :</label>
         </div>
         <div>
-            <input name="address" type="text" value="<%= items.address %>">
+            <input name="address" type="text" value="<%= resto.address %>">
         </div>
         <div>
-            <label for="category">Category</label>
+            <label for="category">Category :</label>
         </div>
         <div>
-            <input name="category" type="text" value="<%= items.category %>">
+            <input name="category" type="text" value="<%= resto.resto_product.category %>">
         </div>
         <div>
-            <button type="submit">ADD</button>
+            <label for="products">Product :</label>
+        </div>
+        <div>
+            <input name="products" type="text" value="<%= resto.resto_product.products %>">
+        </div>
+        <div>
+            <label for="price">Price :</label>
+        </div>
+        <div>
+            <input name="price" type="text" value="<%= resto.resto_product.price %>">
+        </div>
+        <br>
+        <div>
+            <button type="submit">Submit</button>
         </div>
     </form>
+    <br>
+    <a style="margin:48%" href="/dashboard">Back</a>
 </body>
 </html>

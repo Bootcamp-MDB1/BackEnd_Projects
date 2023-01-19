@@ -5,35 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/assets/style.css" type="text/css">
+    <link rel="stylesheet" href="/views/assets/style.css" type="text/css">
 </head>
+
 <body>
-    <a class="add-btn" href="/add">Add New Restaurant</a>
-    <div class="parent">
-        <% for(let i = 0; i < items.length; i++) { %>
-        <div>
-            <div> 
-                <h2><%= items[i].name %></h2>
-                <h2><%= items[i].category %></h2>
-            </div>
-        <!-- <a href="<%= items[i].id %>">Detail</a> -->
-        <button onclick="onViewResto(<%= items[i].id %>)">View</button>
-            <button onclick="onEditResto(<%= items[i].id %>)">Edit</button>
-            <form action="/<%= items[i].id %>" method="post">
-                <button type="submit">Delete</button>
-            </form>
-        <!-- </a> -->
+    <%- include("partials/navbar") %>
+        <div class="homePage" id="img1">
+           
+            <h1 style="margin-top: 50px">HOMEPAGE</h1>
+            <p><i> 
+            " Digital Menu Solutions in the delivery and inside the store "
+            </i></p>
+            <button id="btn1" class="scroll" onclick="scrollpage1()">Next</button>
         </div>
-        <%}%>
-    </div>
+        <div id="img2">
+            <button class="scroll" onclick="scrollpage2()">Next</button>
+        </div>
+        <div id="img3">
+            <button class="scroll" onclick="scrollpage3()">Next</button>
+        </div>
+        <div id="img4">
+            <button class="scroll" onclick="scrollpage4()">Next</button>
+            <button class="scroll" id="top" onclick="topPage()" >TOP</button>
+        </div>
+        
 </body>
 <script>
-        function onViewResto(id){
-            window.location.href = `/${id}`;
-        }
-        
-    function onEditResto(id){
-        window.location.href = `/edit/${id}`;
-    }
-    </script>
+function scrollpage1 () {
+    let element = document.getElementById("img2");
+    element.scrollIntoView();
+}
+
+function scrollpage2 () {
+    let element = document.getElementById("img3");
+    element.scrollIntoView();
+}
+
+function scrollpage3 () {
+    let element = document.getElementById("img4");
+    element.scrollIntoView();
+}
+
+function scrollpage4 () {
+    let element = document.getElementById("footer");
+    element.scrollIntoView();
+}
+
+function  topPage ()  {
+    window.scrollTo(0, 0);
+}
+</script>
 </html>
