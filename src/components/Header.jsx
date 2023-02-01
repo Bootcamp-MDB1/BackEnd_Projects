@@ -13,28 +13,28 @@ const Header = () => {
   const [user ] = useAuthState(auth)
   return (
     <div>
-        <Navbar collapseOnSelect expand="lg" bg="light" variant="light" >
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" >
       <Container className="fs-5" >
         <Navbar.Brand as={Link} to="/"><h3>Gomez</h3></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/home">Home</Nav.Link>
             <NavDropdown title="Goods" id="collasible-nav-dropdown">
-              <NavDropdown.Item as={Link} to="/goods">Action</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/dashboard">Dashboard</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown title="Price" id="collasible-nav-dropdown">
-              <NavDropdown.Item as={Link} to="/price">Action</NavDropdown.Item>
+              <NavDropdown.Item href="action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={Link} to="/About">About Us</Nav.Link>
+            <NavDropdown title="Price" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link as={Link} to="/about">About Us</Nav.Link>
           </Nav>
           <Nav>
           {!user && <Nav.Link as={Link} to="/login">Enter</Nav.Link>}
@@ -43,7 +43,7 @@ const Header = () => {
             {user && (
               <div className="d-flex">
               <Nav.Link as={Link} to="/profile"><p className='text-dark mb-0'>
-                Halo, {user.displayName || user.email.split('@')[0]} !</p>
+                Halo, {user.email.split('@')[0]} !</p>
               </Nav.Link>
               <Nav.Link as={Link} to="/" onClick={() => signOut(auth)}>Logout</Nav.Link>
               </div>

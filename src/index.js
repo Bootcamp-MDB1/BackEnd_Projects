@@ -5,14 +5,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
-import Goods from './pages/Goods';
-import Price from './pages/Price';
+import Home from './pages/Home';
 import About from './pages/About';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Auth from './components/Auth';
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,12 +17,11 @@ root.render(
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<App/>}/>
-      <Route element={<Auth />}>
-      <Route path="/dashboard" element={<Dashboard/>} />
-      <Route path="/goods" element={<Goods/>} />
-      <Route path="/price" element={<Price/>} />
-      </Route>
       <Route path="/about" element={<About/>} />
+      <Route path="/home" element={<Home/>} />
+      <Route element={<Auth />}>
+      {/* <Route path="/home" element={<Home/>} /> */}
+      </Route>
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register/>} />
     </Routes>

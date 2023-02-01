@@ -1,12 +1,11 @@
 import firebaseApp from 'firebase/compat/app'
  
 export default firebaseApp.initializeApp({
-  apiKey: "AIzaSyBWDIkh18lpdZaz1XvsmrIbsQsrABWZ4Sg",
-  authDomain: "resto-b0681.firebaseapp.com",
-  projectId: "resto-b0681",
-  storageBucket: "resto-b0681.appspot.com",
-  messagingSenderId: "705563620986",
-  appId: "1:705563620986:web:c4f439dab087ff0bbb6dc3",
-  measurementId: "G-M9395RYF02"
+  apiKey: "AIzaSyDM2SMuUfBg7l4ADhnt12qNdcONyz09kNk",
+  authDomain: "tesauth-38b29.firebaseapp.com",
+  projectId: "tesauth-38b29",
+  storageBucket: "tesauth-38b29.appspot.com",
+  messagingSenderId: "89833362264",
+  appId: "1:89833362264:web:1488f01c384e9739be8b2d"
 })
 

@@ -30,7 +30,7 @@ const Login = () => {
 
   useEffect(() => {
       if(user || userGoogle !== undefined)
-      navigate('/dashboard', { replace: true });
+      navigate('/home', { replace: true });
   }, [user, userGoogle, navigate])
 
   const loginHandler = () => {
@@ -44,7 +44,7 @@ const Login = () => {
       <Header/>
       <Container className="d-flex justify-content-center align-items-center mt-5" style={{height: 'auto', width: '30vw'}}>
         <Row style={{ width: '30vw'}}>
-          <Col className={"d-flex justify-content-center flex-column  rounded p-5 bg-success"} style={{ height: "auto" }}>
+          <Col className={"d-flex justify-content-center flex-column  rounded p-5 bg-secondary"} style={{ height: "auto" }}>
             <h1 className="mb-3 ">Login</h1>
 
             <Form>
@@ -72,8 +72,6 @@ const Login = () => {
                   Sign in with Google</Button>
               </div>
               {/* <GoogleButton  className="justify-content-start mb-3 rounded" onClick={() => signInWithGoogle()}/> */}
-              <span className="d-flex justify-content-start align-items-center">Belum punya akun ? &nbsp;
-              <Link as={Link} to="/register"><a className="text-decoration-none text-light">Register here</a></Link></span>
             </Form>
           </Col>
           {error && (

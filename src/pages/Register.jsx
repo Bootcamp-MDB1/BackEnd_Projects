@@ -43,7 +43,7 @@ const Register = () => {
       <Header/>
       <Container className="d-flex justify-content-center align-items-center mt-4" style={{height: 'auto', width: '30vw'}}>
         <Row style={{ width: '50vw'}}>
-          <Col className="d-flex justify-content-center flex-column rounded p-4 bg-success" style={{ height: "auto" }}>
+          <Col className="d-flex justify-content-center flex-column rounded p-4 bg-secondary" style={{ height: "auto" }}>
             <h1 className="mb-3">Register</h1>
 
             <Form>
@@ -79,9 +79,7 @@ const Register = () => {
                   {loading ? "Loading..." : "Register"}
                 </Button>
               </div>
-              <span className="d-flex justify-content-start align-items-center">Sudah punya akun ? &nbsp;
-              <Link as={Link} to="/login"><a className="text-decoration-none text-light">Login here</a></Link>
-              </span>
+           
             </Form>
           </Col>
           {error && (
