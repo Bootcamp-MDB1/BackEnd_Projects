@@ -1,0 +1,25 @@
+{
+    "restaurants" :
+    [
+        {
+            "id": 1,
+            "name": "cafe 1",
+            "category": "fried rice"
+        },
+        {
+            "id": 2,
+            "name": "cafe 2",
+            "category": "seafood"
+        },
+        {
+            "id": 3,
+            "name": "cafe 3",
+            "category": "hot bread"
+        },
+        {
+            "id": 4,
+            "name": "cafe 4",
+            "category": "noodles"
+        }
+    ]
+}
