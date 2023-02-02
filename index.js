@@ -7,6 +7,7 @@ const passport = require("passport");
 const session = require('express-session');
 const restrict = require('./middlewares/restrict');
 require('./lib/passport-oauth');
+
 const isLoggin = (req, res, next) => {
   if (req.user) {
     next();
@@ -32,7 +33,7 @@ app.get('/failed', (req, res) => {res.send("you failed")})
 app.get('/good', isLoggin, (req, res) => {res.send(`welcome mr ${req.user.displayName}`)})
 app.get('/google', passport.authenticate('google', { scope:[ 'profile', 'email' ] }));
 app.get( '/google/callback', passport.authenticate( 'google', {failureRedirect: '/failed'}),
-    function(req, res) {res.redirect('/dashboard')});
+    function(req, res) {res.redirect('/profile')});
 
 app.get("/logout", (req, res) => {
   req.session.destroy((err) => {
@@ -77,17 +78,16 @@ app.get('/login', (req, res) => {
   });
 
 app.post('/login', passport.authenticate('local',  {
-    successRedirect: '/dashboard',
+    successRedirect: '/profile',
     failureRedirect: '/login',
     failureFlash: true
 }))
 
-
-app.get('/profile/', restrict,  (req, res) => {
+app.get('/profile/', isLoggin,  (req, res) => {
   // const {username, password, address, membership} = req.user.dataValues
         res.render("profile.ejs", {
         //  username, password, address, membership, 
-         email:req.user.displayName
+         email:req.user.email
         });
 });
 
@@ -105,7 +105,6 @@ app.get("/detail/:id", restrict, (req, res) => {
         });
       });
     });
-  
   
   app.get("/edit/:id", restrict, (req, res) => {
     const {
