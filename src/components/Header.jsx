@@ -42,8 +42,8 @@ const Header = () => {
             Create Free Menu</Nav.Link>}
             {user && (
               <div className="d-flex">
-              <Nav.Link as={Link} to="/profile"><p className='text-dark mb-0'>
-                Halo, {user.email.split('@')[0]} !</p>
+              <Nav.Link as={Link} to="/profile"><p className='text-light mb-0'>
+                Halo, {user.displayName.split('@')[0]} !</p>
               </Nav.Link>
               <Nav.Link as={Link} to="/" onClick={() => signOut(auth)}>Logout</Nav.Link>
               </div>

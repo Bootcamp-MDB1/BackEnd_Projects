@@ -68,10 +68,10 @@ const Login = () => {
                 <Button disabled={loading} variant="primary" type="button" onClick={loginHandler}>
                   {loading ? "Loading..." : "Login"}
                 </Button>
-                <Button className="mx-2" variant="danger" type="button" onClick={() => signInWithGoogle()}>
-                  Sign in with Google</Button>
+                {/* <Button className="mx-2" variant="danger" type="button" onClick={() => signInWithGoogle()}>
+                  Sign in with Google</Button> */}
               </div>
-              {/* <GoogleButton  className="justify-content-start mb-3 rounded" onClick={() => signInWithGoogle()}/> */}
+              <GoogleButton  className="justify-content-start mb-3 rounded" onClick={() => signInWithGoogle()}/>
             </Form>
           </Col>
           {error && (
